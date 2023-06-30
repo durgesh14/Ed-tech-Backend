@@ -9,3 +9,12 @@ module.exports.addlesson = async (req, res) => {
     res.status(400).send(error);
   }
 };
+
+module.exports.getLesson = async (req, res) => {
+  try {
+    const sections = await Section.find();
+    res.send(sections);
+  } catch (error) {
+    res.status(500).send({ message: "Server error" });
+  }
+};
