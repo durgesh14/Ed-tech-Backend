@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const authRoutes = require("./routes/auth.routes");
+const sectionRoutes = require("./routes/section.routes");
 const port = process.env.PORT || 8000;
 const path = require("path");
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./config/mongoose");
 
 app.use("/api/auth", authRoutes);
+app.use("/api/lesson", sectionRoutes);
 
 app.listen(port, function (err) {
   if (err) {
