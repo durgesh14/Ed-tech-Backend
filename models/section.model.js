@@ -14,6 +14,7 @@ const SectionSchema = new mongoose.Schema({
   sectionId: { type: String, required: true },
   title: { type: String, required: true },
   text: { type: String, required: true },
+  videoId: { type: String },
   images: { type: [String], required: true },
   quiz: { type: QuizSchema, required: true },
 });
