@@ -11,9 +11,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const db = require("./config/mongoose");
+const db = require("../config/mongoose");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/lesson", sectionRoutes);
+
+app.listen(port, function (err) {
+  if (err) {
+    console.log(`Error in running server: ${err}`);
+  }
+
+  console.log(`Server is running on port: ${port}`);
+});
 
 module.exports = app;
