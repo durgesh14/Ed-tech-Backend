@@ -10,9 +10,15 @@ module.exports.addlesson = async (req, res) => {
   }
 };
 
+const ITEMS_PER_PAGE = 20;
+
 module.exports.getLesson = async (req, res) => {
   try {
-    const sections = await Section.find();
+    const page = parseInt(req.query.page, 10) || 1;
+    const skip = (page - 1) * ITEMS_PER_PAGE;
+
+    const sections = await Section.find().skip(skip).limit(ITEMS_PER_PAGE);
+
     res.send(sections);
   } catch (error) {
     res.status(500).send({ message: "Server error" });
