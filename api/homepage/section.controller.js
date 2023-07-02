@@ -10,7 +10,7 @@ module.exports.addlesson = async (req, res) => {
   }
 };
 
-const ITEMS_PER_PAGE = 20;
+const ITEMS_PER_PAGE = 1;
 
 module.exports.getLesson = async (req, res) => {
   try {
